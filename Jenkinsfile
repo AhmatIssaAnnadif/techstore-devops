@@ -37,7 +37,8 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest tests/test_app.py \
+
+                    PYTHONPATH=. pytest tests/test_app.py \
                         -v \
                         --tb=short \
                         --junit-xml=test-results/unit-tests.xml \
@@ -53,7 +54,6 @@ pipeline {
                 }
             }
         }
-
         // ── 4. KOD KALİTE ANALİZİ ──────────────────────────────
         stage('SonarQube Analysis') {
             steps {
