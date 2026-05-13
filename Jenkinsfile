@@ -138,8 +138,9 @@ pipeline {
                         -p 5000:5000 \
                         ${DOCKER_HUB_USER}/${DOCKER_IMAGE}:latest
 
+                    docker logs techstore-app
                     echo "⏳ Sağlık kontrolü bekleniyor..."
-                    sleep 10
+                    sleep 25
                 """
             }
         }
